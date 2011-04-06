@@ -1,0 +1,169 @@
+  [1m[36mSQL (0.0ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.0ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateUsers (20110405103821)
+  [1m[35mSQL (31.2ms)[0m  CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `email` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+Mysql::Error: Table 'users' already exists: CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `email` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (15.6ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (140.6ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36mSQL (0.0ms)[0m  [1mSHOW KEYS FROM `schema_migrations`[0m
+  [1m[35mSQL (203.1ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36mSQL (0.0ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (15.6ms)[0m  SHOW TABLES
+  [1m[36mSQL (15.6ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateUsers (20110405103821)
+  [1m[35mSQL (78.1ms)[0m  CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `email` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (31.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110405103821')[0m
+  [1m[35mSQL (0.0ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.0ms)[0m  SHOW TABLES
+  [1m[36mSQL (15.6ms)[0m  [1mdescribe `users`[0m
+  [1m[35mSQL (0.0ms)[0m  SHOW KEYS FROM `users`
+
+
+Started GET "/users" for 127.0.0.1 at Tue Apr 05 17:02:15 +0600 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (140.6ms)
+Completed 200 OK in 797ms (Views: 343.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Apr 05 17:02:29 +0600 2011
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT `users`.* FROM `users`
+Rendered users/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 391ms (Views: 343.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at Tue Apr 05 17:02:33 +0600 2011
+  Processing by UsersController#new as HTML
+Rendered users/_form.html.erb (93.8ms)
+Rendered users/new.html.erb within layouts/application (171.9ms)
+Completed 200 OK in 500ms (Views: 468.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at Tue Apr 05 17:02:39 +0600 2011
+  Processing by UsersController#create as HTML
+  Parameters: {"commit"=>"Create User", "authenticity_token"=>"cogVzlkQa2s5n9LMa5eosqi5zX+S+fYQQSPGSaCOGF0=", "utf8"=>"✓", "user"=>{"name"=>"Sashe", "email"=>"sashe@mail.rb.ru"}}
+  [1m[36mSQL (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  SHOW TABLES
+  [1m[36mSQL (15.6ms)[0m  [1mdescribe `users`[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO `users` (`name`, `email`, `updated_at`, `created_at`) VALUES ('Sashe', 'sashe@mail.rb.ru', '2011-04-05 11:02:39', '2011-04-05 11:02:39')
+  [1m[36mSQL (31.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://127.0.0.1:3000/users/1
+Completed 302 Found in 188ms
+
+
+Started GET "/users/1" for 127.0.0.1 at Tue Apr 05 17:02:40 +0600 2011
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Rendered users/show.html.erb within layouts/application (46.9ms)
+Completed 200 OK in 266ms (Views: 234.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at Tue Apr 05 17:02:47 +0600 2011
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+Rendered users/index.html.erb within layouts/application (46.9ms)
+Completed 200 OK in 250ms (Views: 234.4ms | ActiveRecord: 0.0ms)
+  [1m[36mSQL (0.0ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.0ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateUsers (20110405103821)
+Migrating to CreateMicroposts (20110405113225)
+  [1m[35mSQL (78.1ms)[0m  CREATE TABLE `microposts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `content` varchar(255), `user_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (31.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20110405113225')[0m
+  [1m[35mSQL (15.6ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (15.6ms)[0m  SHOW TABLES
+  [1m[36mSQL (15.6ms)[0m  [1mdescribe `microposts`[0m
+  [1m[35mSQL (15.6ms)[0m  SHOW KEYS FROM `microposts`
+  [1m[36mSQL (15.6ms)[0m  [1mdescribe `users`[0m
+  [1m[35mSQL (0.0ms)[0m  SHOW KEYS FROM `users`
+
+
+Started GET "/microposts" for 127.0.0.1 at Tue Apr 05 17:35:23 +0600 2011
+  Processing by MicropostsController#index as HTML
+  [1m[35mMicropost Load (0.0ms)[0m  SELECT `microposts`.* FROM `microposts`
+Rendered microposts/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 219ms (Views: 187.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/microposts/new" for 127.0.0.1 at Tue Apr 05 17:35:29 +0600 2011
+  Processing by MicropostsController#new as HTML
+Rendered microposts/_form.html.erb (15.6ms)
+Rendered microposts/new.html.erb within layouts/application (78.1ms)
+Completed 200 OK in 297ms (Views: 281.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/microposts" for 127.0.0.1 at Tue Apr 05 17:35:40 +0600 2011
+  Processing by MicropostsController#create as HTML
+  Parameters: {"commit"=>"Create Micropost", "micropost"=>{"user_id"=>"Sashe", "content"=>"Привет!!!"}, "authenticity_token"=>"cogVzlkQa2s5n9LMa5eosqi5zX+S+fYQQSPGSaCOGF0=", "utf8"=>"✓"}
+  [1m[36mSQL (15.6ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  SHOW TABLES
+  [1m[36mSQL (15.6ms)[0m  [1mdescribe `microposts`[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO `microposts` (`user_id`, `content`, `updated_at`, `created_at`) VALUES (0, 'Привет!!!', '2011-04-05 11:35:40', '2011-04-05 11:35:40')
+  [1m[36mSQL (31.2ms)[0m  [1mCOMMIT[0m
+Redirected to http://127.0.0.1:3000/microposts/1
+Completed 302 Found in 266ms
+
+
+Started GET "/microposts/1" for 127.0.0.1 at Tue Apr 05 17:35:40 +0600 2011
+  Processing by MicropostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mSQL (0.0ms)[0m  SHOW TABLES
+  [1m[36mMicropost Load (0.0ms)[0m  [1mSELECT `microposts`.* FROM `microposts` WHERE `microposts`.`id` = 1 LIMIT 1[0m
+Rendered microposts/show.html.erb within layouts/application (46.9ms)
+Completed 200 OK in 281ms (Views: 234.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/microposts" for 127.0.0.1 at Tue Apr 05 17:40:48 +0600 2011
+  Processing by MicropostsController#index as HTML
+  [1m[35mMicropost Load (0.0ms)[0m  SELECT `microposts`.* FROM `microposts`
+Rendered microposts/index.html.erb within layouts/application (46.9ms)
+Completed 200 OK in 234ms (Views: 203.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/microposts/new" for 127.0.0.1 at Tue Apr 05 17:40:52 +0600 2011
+  Processing by MicropostsController#new as HTML
+Rendered microposts/_form.html.erb (31.2ms)
+Rendered microposts/new.html.erb within layouts/application (109.4ms)
+Completed 200 OK in 312ms (Views: 281.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/microposts" for 127.0.0.1 at Tue Apr 05 17:41:04 +0600 2011
+  Processing by MicropostsController#create as HTML
+  Parameters: {"commit"=>"Create Micropost", "micropost"=>{"user_id"=>"1", "content"=>"Первое сообщние"}, "authenticity_token"=>"cogVzlkQa2s5n9LMa5eosqi5zX+S+fYQQSPGSaCOGF0=", "utf8"=>"✓"}
+  [1m[36mSQL (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.0ms)[0m  SHOW TABLES
+  [1m[36mSQL (15.6ms)[0m  [1mdescribe `microposts`[0m
+  [1m[35mAREL (0.0ms)[0m  INSERT INTO `microposts` (`created_at`, `updated_at`, `content`, `user_id`) VALUES ('2011-04-05 11:41:04', '2011-04-05 11:41:04', 'Первое сообщние', 1)
+  [1m[36mSQL (46.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://127.0.0.1:3000/microposts/2
+Completed 302 Found in 125ms
+
+
+Started GET "/microposts/2" for 127.0.0.1 at Tue Apr 05 17:41:04 +0600 2011
+  Processing by MicropostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mSQL (0.0ms)[0m  SHOW TABLES
+  [1m[36mMicropost Load (0.0ms)[0m  [1mSELECT `microposts`.* FROM `microposts` WHERE `microposts`.`id` = 2 LIMIT 1[0m
+Rendered microposts/show.html.erb within layouts/application (46.9ms)
+Completed 200 OK in 266ms (Views: 218.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/microposts" for 127.0.0.1 at Tue Apr 05 17:41:10 +0600 2011
+  Processing by MicropostsController#index as HTML
+  [1m[35mMicropost Load (0.0ms)[0m  SELECT `microposts`.* FROM `microposts`
+Rendered microposts/index.html.erb within layouts/application (78.1ms)
+Completed 200 OK in 281ms (Views: 265.6ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT `users`.* FROM `users` LIMIT 1[0m
+  [1m[35mMicropost Load (0.0ms)[0m  SELECT `microposts`.* FROM `microposts` WHERE (`microposts`.user_id = 1)
+
+
+Started GET "/microposts" for 127.0.0.1 at 2011-04-06 09:45:31 +0600
+  Processing by MicropostsController#index as HTML
+  [1m[36mMicropost Load (15.6ms)[0m  [1mSELECT `microposts`.* FROM `microposts`[0m
+Rendered microposts/index.html.erb within layouts/application (46.9ms)
+Completed 200 OK in 2109ms (Views: 218.7ms | ActiveRecord: 15.6ms)
